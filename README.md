@@ -32,6 +32,36 @@ To stop the Docker containers, use the following command:
 ```bash
 docker-compose down
 ```
-```
+
 
 Please replace `http://localhost` with the actual URL if you have configured it differently in your Nginx configuration.
+
+
+## How to install tshark inside the container
+
+In order to capture the traffic of the load balancer, use the following command: 
+
+```bash
+# run commands in bash inside the container
+sudo docker exec -it my-docker-compose-project_load_balancer_1  /bin/bash
+
+# install tshark inside the container (no)
+apt update && apt install tshark -y
+
+# set up tshark to capture live into /home/packets/tshark.pcap file
+tshark -i any -w ./home/packets/tshark.pcap
+
+```
+
+## To retrieve the captured traffic live from the host side
+
+```bash
+# make a first-in-first-out pipe
+mkfifo /tmp/temp.pcap
+
+# live redirect the output from the volume synced file to the fifo  
+sudo tail -n +0 -f ./packets/tshark.pcap > /tmp/sharkfin &
+
+# run wireshark on that fifo
+sudo wireshark -k -i /tmp/temp.pcap &
+```
