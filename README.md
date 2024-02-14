@@ -1,4 +1,4 @@
-# Docker Compose Project
+# Pipe Tshark Project
 
 This project consists of two simple Flask web apps and an Nginx load balancer, all running in separate Docker containers.
 
