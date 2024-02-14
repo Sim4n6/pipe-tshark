@@ -18,7 +18,7 @@ Run and build if a changge the Docker containers:
 docker-compose up --build
 ```
 
-You should now be able to access the Flask web apps via the Nginx load balancer at `http://localhost`.
+You should now be able to access the Flask web apps via the Nginx load balancer at <http://localhost>.
 
 ## How to Stop
 
@@ -29,7 +29,7 @@ docker-compose down
 ```
 
 
-Please replace `http://localhost` with the actual URL if you have configured it differently in your Nginx configuration.
+Please replace <http://localhost> with the actual URL if you have configured it differently in your Nginx configuration.
 
 
 ## How to install tshark inside the container
