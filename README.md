@@ -11,16 +11,11 @@ This project consists of two simple Flask web apps and an Nginx load balancer, a
 
 ## How to Run
 
-1. Build the Docker images:
+
+Run and build if a changge the Docker containers:
 
 ```bash
-docker-compose build
-```
-
-2. Run the Docker containers:
-
-```bash
-docker-compose up
+docker-compose up --build
 ```
 
 You should now be able to access the Flask web apps via the Nginx load balancer at `http://localhost`.
@@ -65,3 +60,4 @@ sudo tail -n +0 -f ./packets/tshark.pcap > /tmp/sharkfin &
 # run wireshark on that fifo
 sudo wireshark -k -i /tmp/temp.pcap &
 ```
+
